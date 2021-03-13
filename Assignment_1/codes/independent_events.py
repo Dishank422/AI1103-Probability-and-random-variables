@@ -29,4 +29,4 @@ while 1:
         prob_B = (prob_B_min + prob_B_max) / 2
 
 print("If A and B are independent, probability of B =", prob_B)
-print("which is approximately equal to 0.2")
+print("which is approximately equal to 0.2(thoritical value)")
