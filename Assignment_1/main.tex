@@ -122,7 +122,7 @@ columns=fullflexible
 \renewcommand{\thetable}{\theenumi}
 Download all python codes from 
 \begin{lstlisting}
-https://github.com/Dishank422/AI1103-Probability-and-random-variables/blob/main/Assignment_1/codes/simulation.py
+https://github.com/Dishank422/AI1103-Probability-and-random-variables/blob/main/Assignment_1/codes
 \end{lstlisting}
 %
 and latex-tikz codes from 
@@ -131,7 +131,7 @@ and latex-tikz codes from
 https://github.com/Dishank422/AI1103-Probability-and-random-variables/blob/main/Assignment_1/main.tex
 \end{lstlisting}
 \section{Problem}
-Given that the events A and B are such that P(A) = $\frac{1}{2}$, P(A$\cup$B) = $\frac{3}{5}$ and P(B) = p. Find p if they are 
+Given that the events A and B are such that P(A) = $\frac{1}{2}$, P(A + B) = $\frac{3}{5}$ and P(B) = p. Find p if they are 
 \begin{enumerate}[label={\roman*)}]
     \item mutually exclusive
     \item independent 
@@ -141,8 +141,8 @@ i)
 
 Since the events are mutually exclusive, by definition
 \begin{align}
-    P(A\cap B) = 0\\
-    \implies P(A\cup B) = P(A) + P(B)
+    P(AB) = 0\\
+    \implies P(A + B) = P(A) + P(B)
 \end{align}
 On substituting the values of P(A), P(B) and P(A$\cup$B) in (2.0.2), we get
 \begin{align}
@@ -154,12 +154,12 @@ ii)
 
 Since the events are independent
 \begin{align}
-    P(A\cap B) = P(A)P(B)
+    P(AB) = P(A)P(B)
 \end{align}
 We know
 \begin{align}
-    P(A\cup B) = P(A) + P(B) - P(A\cap B)\\
-    \implies P(A\cup B) = P(A) + P(B) - P(A)P(B)
+    P(A + B) = P(A) + P(B) - P(AB)\\
+    \implies P(A + B) = P(A) + P(B) - P(A)P(B)
 \end{align}
 On substituting the values of P(A), P(B) and P(A$\cup$B) in (2.0.7), we get
 \begin{align}
@@ -168,4 +168,3 @@ On substituting the values of P(A), P(B) and P(A$\cup$B) in (2.0.7), we get
 \end{align}
 
 \end{document}
-
