@@ -18,7 +18,7 @@ tolerance = 0.0001
 
 print("Please wait. The process takes some time")
 
-#finding prob_B using binary search
+#finding probability of B using binary search
 while 1:
     count = 0
     for i in range(sample_size):
