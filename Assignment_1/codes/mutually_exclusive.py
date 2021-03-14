@@ -6,7 +6,7 @@ prob_A = 0.5
 prob_A_or_B = 0.6
 prob_B_min = 0.0
 prob_B_max = 0.5 #simce prob_B + prob_A <= 1
-prob_B = (prob_A_or_B) / 2
+prob_B = (prob_B_min + prob_B_max) / 2
 tolerance = 0.0001
 
 # Let X = 1 if A = success and B = failure
