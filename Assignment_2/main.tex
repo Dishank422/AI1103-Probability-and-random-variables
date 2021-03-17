@@ -133,6 +133,72 @@ https://github.com/Dishank422/AI1103-Probability-and-random-variables/blob/main/
 \section{Problem}
 (Gate 11)The probability that a given positive number lying between 1 and 100 (both inclusive) is NOT divisible by 2, 3 or 5 is...... 
 \section{Solution}
+Let $X \in  \{1,2,...,100\}$ be the random variable representing the outcome for random selection of a number in $\{1,...,100\}$.
 
+Since X has a uniform distribution, the probability mass function (pmf) is represented as 
+\begin{align}
+    \pr{X  = n} = 
+    \begin{cases}
+        \frac{1}{100} & 1  \le n \le 100 \\
+        0 & otherwise
+    \end{cases}
+\end{align}
+Let A represent the event that the number is divisible by 2.
+Let B represent the event that the number is divisible by 3.
+Let C represent the event that the number is divisible by 5.
+
+We need to find the probability that the number is not divisible by 2, 3 or 5. Thus we need to find $1 - \pr{A+B+C}$
+
+We know 
+\begin{multline}
+    \pr{A+B+C} = \pr{A} + \pr{B} + \pr{C} \\- \pr{AB} - \pr{BC} \\- \pr{AC} + \pr{ABC}\label{Shurururururururu}    
+\end{multline}
+
+\begin{align}
+    \pr{A} &= \sum_n\pr{X = n|n\; is\; divisible\; by\; 2}\\
+           &= \frac{50}{100}   
+\end{align}
+
+\begin{align}
+    \pr{B} &= \sum_n\pr{X = n|n\; is\; divisible\; by\; 3}\\
+           &= \frac{33}{100}   
+\end{align}
+
+\begin{align}
+    \pr{C} &= \sum_n\pr{X = n|n\; is\; divisible\; by\; 5}\\
+           &= \frac{20}{100}   
+\end{align}
+
+\begin{align}
+    \pr{AB} &= \sum_n\pr{X = n|n\; is\; divisible\; by\; 6}\\
+            &= \frac{16}{100}   
+\end{align}
+
+\begin{align}
+    \pr{BC} &= \sum_n\pr{X = n|n\; is\; divisible\; by\; 15}\\
+            &= \frac{6}{100}   
+\end{align}
+
+\begin{align}
+    \pr{AC} &= \sum_n\pr{X = n|n\; is\; divisible\; by\; 10}\\
+            &= \frac{10}{100}   
+\end{align}
+
+\begin{align}
+    \pr{ABC} &= \sum_n\pr{X = n|n\; is\; divisible\; by\; 30}\\
+            &= \frac{3}{100}   
+\end{align}
+
+Substituting in \eqref{Shurururururururu}, we get
+\begin{multline}
+    \pr{A+B+C} = \frac{50}{100} + \frac{33}{100} + \frac{20}{100} \\- \frac{16}{100} - \frac{6}{100} - \frac{10}{100} + \frac{3}{100} 
+\end{multline}
+Thus, 
+\begin{align}
+    \pr{A+B+C} = \frac{74}{100}
+\end{align}
+Thus required probability = 
+\begin{align}
+    1 - \pr{A+B+C} = \frac{26}{100}
+\end{align}
 \end{document}
-
