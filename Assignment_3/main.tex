@@ -148,8 +148,13 @@ In figure \ref{fig:Nuruhuhuhuhuhuhu}, rectangle ABCD represents sample space of 
 
 Alternately, we can write 
 \begin{align}
-    \pr{Y\le X} &= \int_2^3 \pr{Y\le X|\; X = x}\\
-                &= \int_2^3 F_Y(x)dx\\
+    \pr{Y\le X} &= \int_2^3 \pr{Y\le x|\; X = x}
+    \label{myneighbourtottoro}
+\end{align}
+
+Since X and Y are independent, from \eqref{myneighbourtottoro}, we have
+\begin{align}
+    \pr{Y\le X} &= \int_2^3 F_Y(x)dx\\
                 &= \int_2^3 \cfrac{x-1}{3}dx\\
                 &= \cfrac{1}{2}
 \end{align}
