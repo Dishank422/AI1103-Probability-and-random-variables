@@ -140,10 +140,17 @@ https://github.com/Dishank422/AI1103-Probability-and-random-variables/blob/main/
 \label{fig:Nuruhuhuhuhuhuhu}
 \end{figure}
 
-In figure \ref{fig:Nuruhuhuhuhuhuhu}, rectangle ABCD represents sample space of (X, Y). $Y \le X$ for any point $(X, Y)$ if and only if the point lies on or below line EF. Therefore 
+In figure \ref{fig:Nuruhuhuhuhuhuhu}, rectangle ABCD represents sample space of (X, Y). $Y \le X$ for any point (X, Y) if and only if the point lies on or below line EF. Therefore 
 \begin{align}
     \pr{Y \le X} = \cfrac{Area\; of\; AEFD}{Area\; of\; ABCD}\\
                  = \cfrac{1}{2}    
 \end{align}
 
+Alternately, we can write 
+\begin{align}
+    \pr{Y\le X} &= \int_2^3 \pr{Y\le X|\; X = x}\\
+                &= \int_2^3 F_Y(x)dx\\
+                &= \int_2^3 \cfrac{x-1}{3}dx\\
+                &= \cfrac{1}{2}
+\end{align}
 \end{document}
