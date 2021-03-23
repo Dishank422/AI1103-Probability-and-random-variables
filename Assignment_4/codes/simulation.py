@@ -13,4 +13,4 @@ for i in range(sim_len):
         count += 1
 
 print("Experimental probability = ", count / sim_len)
-print("which is approximately equal to 0.716(theoritical probability)")
+print("which is approximately equal to 0.715(theoritical probability)")
