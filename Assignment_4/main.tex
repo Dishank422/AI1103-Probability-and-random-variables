@@ -131,7 +131,13 @@ and latex-tikz codes from
 https://github.com/Dishank422/AI1103-Probability-and-random-variables/blob/main/Assignment_4/main.tex
 \end{lstlisting}
 \section{Problem}
-(Gate MA - 2016 Q.49) Let X be a standard normal random variable. Then $\pr{X < 0 |\;\abs{\lfloor X\rfloor} = 1}$ is equal to..... 
+(Gate MA - 2016 Q.49) Let X be a standard normal random variable. Then $\pr{X < 0 |\;\abs{\lfloor X\rfloor} = 1}$ is equal to
+\begin{enumerate}[label = \alph*)]
+    \item $\cfrac{\Phi(1) - \frac{1}{2}}{\Phi(2) - \frac{1}{2}}$
+    \item $\cfrac{\Phi(1) + \frac{1}{2}}{\Phi(2) + \frac{1}{2}}$
+    \item $\cfrac{\Phi(1) - \frac{1}{2}}{\Phi(2) + \frac{1}{2}}$
+    \item $\cfrac{\Phi(1) + 1}{\Phi(2) + 1}$
+\end{enumerate}
 \section{Solution}
 Since X is standard normal random variable, 
 \begin{align}
@@ -146,10 +152,18 @@ Thus required probability
 \begin{align}
     &= \frac{\pr{X\in [-1,0)}}{\pr{X \in [1, 2) \cup [-1, 0)}}\\
     &= \cfrac{\int_{-1}^0\frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2}) dx}{\int_{-1}^0\frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2})dx + \int_1^2\frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2})dx}\\
-    &= \cfrac{\int_{-1}^0 exp(\frac{-x^2}{2}) dx}{\int_{-1}^0 exp(\frac{-x^2}{2})dx + \int_1^2 exp(\frac{-x^2}{2})dx}\\
-    &= \cfrac{0.86}{0.86 + 0.34}\\
-    &= 0.716
+    &= \cfrac{\int_0^1\frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2}) dx}{\int_0^1\frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2})dx + \int_1^2\frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2})dx}\\
+    &= \cfrac{\Phi(1) - \Phi(0)}{\Phi(1) - \Phi(0) + \Phi(2) - \Phi(1)}\\
+    &= \cfrac{\Phi(1) - \frac{1}{2}}{\Phi(2) - \frac{1}{2}}\label{bato}\\
+    &= \cfrac{0.841 - 0.5}{0.977 - 0.5}\label{gato}\\
+    &= 0.715
 \end{align}
 
-\textbf{Disclaimer:} The integration was performed using Wolfram Alpha
+Here $\Phi(x)$ represents the standard normal cumulative density function given by
+\begin{align}
+    \Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2}) dx
+\end{align}
+
+It can easily be seen that $\Phi(0) = \frac{1}{2}$, which has been used to obtain \eqref{bato}.
+\eqref{gato} was obtained by consulting tables for $\Phi(x)$
 \end{document}
