@@ -155,9 +155,11 @@ Here
 \end{align*}
 Thus required probability
 \begin{align}
-    &= \frac{\pr{X\in [-1,0)}}{\pr{X \in [1, 2) \cup [-1, 0)}}\\
-    &= \cfrac{\int_{-1}^0\frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2}) dx}{\int_{-1}^0\frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2})dx + \int_1^2\frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2})dx}\\
-    &= \cfrac{\int_0^1\frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2}) dx}{\int_0^1\frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2})dx + \int_1^2\frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2})dx}\\
+    &= \frac{\pr{X\in [-1,0)}}{\pr{X \in [1, 2) \cup [-1, 0)}}
+\end{align} 
+Using symmetry of Gaussian about y = 0, we have required probability 
+\begin{align}
+    &= \frac{\pr{X\in (0,1]}}{\pr{X \in [1, 2) \cup (0, 1])}}\\
     &= \cfrac{\Phi(1) - \Phi(0)}{\Phi(1) - \Phi(0) + \Phi(2) - \Phi(1)}\\
     &= \cfrac{\Phi(1) - \frac{1}{2}}{\Phi(2) - \frac{1}{2}}\label{bato}\\
     &= \cfrac{0.841 - 0.5}{0.977 - 0.5}\label{gato}\\
