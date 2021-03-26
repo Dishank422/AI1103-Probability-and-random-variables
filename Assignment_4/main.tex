@@ -139,10 +139,6 @@ https://github.com/Dishank422/AI1103-Probability-and-random-variables/blob/main/
     \item $\cfrac{\Phi(1) + 1}{\Phi(2) + 1}$
 \end{enumerate}
 \section{Solution}
-Since X is standard normal random variable, 
-\begin{align}
-    p_X(x) = \frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2})
-\end{align}
 \begin{align}
     &\abs{\lfloor X\rfloor} = 1\\
     \implies &\lfloor X\rfloor = 1\; or\; -1\\
@@ -157,18 +153,24 @@ Thus required probability
 \begin{align}
     &= \frac{\pr{X\in [-1,0)}}{\pr{X \in [1, 2) \cup [-1, 0)}}
 \end{align} 
-Using symmetry of Gaussian about y = 0, we have required probability 
+Using symmetry of standard normal random variable about y = 0, we have required probability 
 \begin{align}
-    &= \frac{\pr{X\in (0,1]}}{\pr{X \in [1, 2) \cup (0, 1])}}\\
-    &= \cfrac{\Phi(1) - \Phi(0)}{\Phi(1) - \Phi(0) + \Phi(2) - \Phi(1)}\\
+    &= \cfrac{\pr{X\in (0,1]}}{\pr{X \in [1, 2) \cup (0, 1])}}\\
+    &= \cfrac{\pr{X \in (0, 1]}}{\pr{X \in (0, 2)}}\\
+    &= \cfrac{\pr{X < 1} - \pr{X < 0}}{\pr{X < 2} - \pr{X < 0}}\\
+    &= \cfrac{\Phi(1) - \Phi(0)}{\Phi(2) - \Phi(0)}\\
     &= \cfrac{\Phi(1) - \frac{1}{2}}{\Phi(2) - \frac{1}{2}}\label{bato}\\
     &= \cfrac{0.841 - 0.5}{0.977 - 0.5}\label{gato}\\
     &= 0.715
 \end{align}
 
-Here $\Phi(x)$ represents the standard normal cumulative density function given by
+Here $\Phi(x)$ represents the standard normal cumulative density function. Thus 
 \begin{align}
-    \Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} exp(\frac{-x^2}{2}) dx
+    X \sim N(0,1)
+\end{align}
+and 
+\begin{align}
+    \Phi(x) = \int_{-\infty}^x f(X)dx
 \end{align}
 
 It can easily be seen that $\Phi(0) = \frac{1}{2}$, which has been used to obtain \eqref{bato}.
