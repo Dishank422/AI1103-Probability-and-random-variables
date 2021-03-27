@@ -148,9 +148,9 @@ In figure \ref{fig:Nuruhuhuhuhuhuhu}, rectangle ABCD represents sample space of 
 
 Alternately, we have PDF and CDF of X and Y given by 
 \begin{align}
-    f(X) = 
+    f_X(x) = 
     \begin{cases}
-    1 & 2\le X\le 3\\
+    1 & 2\le x\le 3\\
     0 & otherwise
     \end{cases}
 \end{align}
@@ -163,9 +163,9 @@ Alternately, we have PDF and CDF of X and Y given by
     \end{cases}
 \end{align}
 \begin{align}
-    f(Y) = 
+    f_Y(x) = 
     \begin{cases}
-    1 & 1\le Y\le 4\\
+    1 & 1\le x\le 4\\
     0 & otherwise
     \end{cases}
 \end{align}
@@ -179,7 +179,7 @@ Alternately, we have PDF and CDF of X and Y given by
 \end{align}
 Thus 
 \begin{align}
-    \pr{Y\le X} &= \int_{-\infty}^{\infty} F_Y(x)f(X)dx\\
+    \pr{Y\le X} &= \int_{-\infty}^{\infty} F_Y(x)f_X(x)dx\\
                 &= \int_2^3 \cfrac{x-1}{3}dx\\
                 &= \cfrac{1}{2}
 \end{align}
