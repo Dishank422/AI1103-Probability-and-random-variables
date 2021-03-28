@@ -140,14 +140,22 @@ https://github.com/Dishank422/AI1103-Probability-and-random-variables/blob/main/
 Since $X_1$, $X_2$, $X_3$ and $X_4$ are independent, required probability
 \begin{align}
     &= \int_{-\infty}^{\infty} (1-F_{X_1}(x))(1-F_{X_2}(x))(1-F_{X_3}(x))f_{X_4}(x)dx\\
-    &= \int_{-\infty}^{\infty} (\Phi(-x))^3\phi(x)dx\\
-    &= \int_{-\infty}^{\infty} (\Phi(-x))^3\phi(-x)dx
+    &= \int_{-\infty}^{\infty} (1-\Phi(x))^3\phi(x)dx
 \end{align}
-Substituting $\Phi(-x)$ by u and $\phi(-x)dx$ by du, we get required probability
+Substituting 
 \begin{align}
-    = \int_0^1 u^3 du\\
+    u  &= 1 - \Phi(x)\\
+    du &= -\phi(x)dx
+\end{align}
+we get required probability
+\begin{align}
+    = -\int_1^0 u^3 du\label{simplifiedintegral}\\
     = \cfrac{1}{4}
 \end{align}
-
+Note that in eq. \eqref{simplifiedintegral} the  integral is from 1 to 0 because
+\begin{align}
+    1-\Phi(-\infty) &= 0\\
+    1-\Phi(\infty)  &= 1
+\end{align}
 Here $\phi(x)$ and $\Phi(x)$ represent the pdf and cdf of standard normal random variable respectively.
 \end{document}
