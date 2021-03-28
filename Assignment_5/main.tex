@@ -133,10 +133,11 @@ https://github.com/Dishank422/AI1103-Probability-and-random-variables/blob/main/
 \section{Problem}
 (Gate EC - 2018 Q. 23) Let $X_1$, $X_2$, $X_3$ and $X_4$ be independent normal random variables with zero mean and unit variance. The probability that $X_4$ is the smallest among the four is..... 
 \section{Solution}
-\begin{multline}
-    \pr{X_4 = min(X_1, X_2, X_3, X_4)}\\
-    = \pr{X_1, X_2, X_3 > x| X_4 = x}
-\end{multline}
+Required probability
+\begin{align}
+    &= \pr{X_4 < X_1, X_4 < X_2, X_4 < X_3}\\
+    &= \int_{-\infty}^{\infty}\pr{X_1, X_2, X_3 > x | X_4 = x}
+\end{align}
 Since $X_1$, $X_2$, $X_3$ and $X_4$ are independent, required probability
 \begin{align}
     &= \int_{-\infty}^{\infty} (1-F_{X_1}(x))(1-F_{X_2}(x))(1-F_{X_3}(x))f_{X_4}(x)dx\\
