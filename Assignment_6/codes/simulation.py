@@ -1,6 +1,6 @@
 from scipy.stats import expon, gamma
 
-sim_len = 100000
+sim_len = 1000000
 count = 0
 
 Y1 = expon.rvs(size = sim_len)
