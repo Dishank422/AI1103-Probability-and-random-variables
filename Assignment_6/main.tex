@@ -176,77 +176,66 @@ Let the above events be $E_1$, $E_2$ and $E_3$ respectively. Thus the required p
     \label{tab:my_label}
 \end{table}
 
+First we present the following result which shall be useful later
 \begin{align}
-    \pr{E_1} &= \pr{Y_1,...,Y_{10} > X_1}\\
-             &= \int_{-\infty}^{\infty} \pr{Y_1,...,Y_{10} > x|X_1 = x}\\
-             &= \int_{-\infty}^{\infty} (1-F_{Y_1}(x))^{10} f_{X_1}(x)dx \label{probabilityofE1}
+    \int_0^{\infty} xe^{-nx}dx = \cfrac{1}{n^2}\label{integrationresult}
 \end{align}
-Note that \eqref{probabilityofE1} is obtained because $Y_1,...Y_{12}$ are all identical random variables. 
 
-The visitors are arriving according to a Poisson process with rate 1. Thus for $X_1$, 
+The above can be derived using integration by parts as follows
 \begin{align}
-    \lambda &= 1*X_1 = X_1\\
+    \int_0^{\infty} xe^{-nx} dx &= -\cfrac{xe^{-nx}}{n} \biggr \vert_0^{\infty} 
+                                   + \cfrac{1}{n} \int_0^{\infty}e^{-nx}dx\\
+                                &= -\cfrac{e^{-nx}}{n^2}\biggr \vert_0^{\infty}\\
+                                &= \cfrac{1}{n^2}
+\end{align}
+
+Next we note that $X_1$, $X_2$ and $X_3$ are identical random variables having Poisson distribution with rate 1. Thus for $i \in \{1,2,3\}$,
+\begin{align}
+    \lambda &= 1*X_i = X_i\\
     k &= 1\\
-    \implies f_{X_1}(x) &= 
+    \implies f_{X_i}(x) &= 
     \begin{cases}
         \cfrac{x^1e^{-x}}{1!} = x e^{-x} &x > 0\\
         0                                &otherwise
     \end{cases}
 \end{align}
 
-As given in question
+Also $Y_1,...,Y_{12}$ are identical random variables. Thus for $i \in \{1,...,12\}$, as given in question,
 \begin{align}
-    f_{Y_1}(x) &= 
+    f_{Y_i}(x) &= 
     \begin{cases}
         e^{-x} & x > 0\\
         0      & otherwise
     \end{cases}\\
-    \implies F_{Y_1}(x) &= 
+    \implies F_{Y_i}(x) &= 
     \begin{cases}
         1-e^{-x} & x > 0\\
         0        & otherwise
     \end{cases}
 \end{align}
 
-Thus from \eqref{probabilityofE1} 
+Now we find $\pr{E_1}$, $\pr{E_2|E_1}$ and $\pr{E_3|E_1E_2}$ in order to find the required probability from eq \eqref{Requiredprobability}.
 \begin{align}
-    \pr{E_1} = \int_{0}^{\infty} x e^{-11x} dx
-\end{align}
-
-Using Integration by parts
-\begin{align}
-    \pr{E_1} &= -\cfrac{xe^{-11x}}{11} \biggr \vert_0^{\infty} 
-                + \cfrac{1}{11} \int_0^{\infty}e^{-11x}dx\\
-             &= -\cfrac{e^{-11x}}{121}\biggr \vert_0^{\infty}\\
+    \pr{E_1} &= \pr{Y_1,...,Y_{10} > X_1}\\
+             &= \int_{-\infty}^{\infty} \pr{Y_1,...,Y_{10} > x|X_1 = x}\\
+             &= \int_{-\infty}^{\infty} (1-F_{Y_1}(x))^{10} f_{X_1}(x)dx\\
+             &= \int_0^{\infty} xe^{-11x} dx\\
              &= \cfrac{1}{121}
 \end{align}
-
-We can write $\pr{E_2|E_1} =$ 
-\begin{align}
+\begin{multline}
+    \pr{E_2|E_1} =\\
     \pr{Y_1,...,Y_{10},X_1+Y_{11} > X_1 + X_2|Y_1,...,Y_{10} > X_1}
-\end{align}
-
-Using memoryless property of exponential distribution
+\end{multline}
+Using memoryless property of exponential random variable,
 \begin{align}
     \pr{E_2|E_1} &= \pr{Y_1,...,Y_{11} > X_2}\\
                  &= \int_{-\infty}^{\infty} \pr{Y_1,...Y_{11} > x|X_2 = x}\\
-                 &= \int_{-\infty}^{\infty} (1-F_{Y_1}(x))^{11} f_{X_2}(x)dx
-\end{align}
-
-Since $X_2$ is identical to $X_1$, we can directly substitute the values to obtain
-\begin{align}
-    \pr{E_2|E_1} = \int_{0}^{\infty} x e^{-12x} dx
-\end{align}
-
-Using integration by parts
-\begin{align}
-    \pr{E_2|E_1} &= -\cfrac{xe^{-12x}}{12} \biggr \vert_0^{\infty} 
-                    + \cfrac{1}{12} \int_0^{\infty}e^{-12x}dx\\
-                 &= -\cfrac{e^{-12x}}{144}\biggr \vert_0^{\infty}\\
+                 &= \int_{-\infty}^{\infty} (1-F_{Y_1}(x))^{11} f_{X_2}(x)dx\\
+                 &= \int_{0}^{\infty} x e^{-12x} dx\\
                  &= \cfrac{1}{144}
 \end{align}
 
-And finally, $\pr{E_3|E_1E_2} = $  
+$\pr{E_3|E_1E_2} = $  
 \begin{multline}
     \pr{min(Y_1,...,Y_{10},X_1+Y_{11},X_1+X_2+Y_{12}) \\
     < X_1+X_2+X_3| Y_1,...,Y_{10},X_1+Y_{11} > X_1+X_2})
@@ -258,23 +247,12 @@ We can simplify and write $\pr{E_3|E_1E_2} = $
     > X_1+X_2+X_3| Y_1,...,Y_{10},X_1+Y_{11} > X_1+X_2})
 \end{multline}
 
-Using memoryless property of exponential distribution
+Using memoryless property of exponential random variable,
 \begin{align}
     \pr{E_3|E_1E_2} &= 1 - \pr{Y_1,...,Y_{12} > X_3}\\
                     &= 1 - \int_{-\infty}^{\infty} \pr{Y_1,...Y_{12} > x|X_3 = x}\\
-                    &= 1 - \int_{-\infty}^{\infty} (1-F_{Y_1}(x))^{12} f_{X_3}(x)dx 
-\end{align}
-
-Since $X_3$ is identical to $X_1$, we can directly substitute the values to obtain
-\begin{align}
-    \pr{E_3|E_1E_2} = 1 - \int_{0}^{\infty} x e^{-13x} dx
-\end{align}
-
-Using integration by parts
-\begin{align}
-    \pr{E_3|E_1E_2} &= 1 -\left( -\cfrac{xe^{-13x}}{13} \biggr \vert_0^{\infty} 
-                       + \cfrac{1}{13} \int_0^{\infty}e^{-13x}dx\right)\\
-                    &= 1 - \left( -\cfrac{e^{-13x}}{169}\biggr \vert_0^{\infty}\right)\\
+                    &= 1 - \int_{-\infty}^{\infty} (1-F_{Y_1}(x))^{12} f_{X_3}(x)dx\\
+                    &= 1 - \int_{0}^{\infty} x e^{-13x} dx\\
                     &= 1 - \cfrac{1}{169}\\
                     &= \cfrac{168}{169}
 \end{align}
