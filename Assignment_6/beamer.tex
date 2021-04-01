@@ -149,7 +149,8 @@ Now we find $\pr{E_1}$, $\pr{E_2|E_1}$ and $\pr{E_3|E_1E_2}$ in order to find th
 \frametitle{Solution Contd.}
 
 \begin{multline}
-    \pr{E_2|E_1} = \pr{Y_1,...,Y_{10},X_1+Y_{11} > X_1 + X_2|Y_1,...,Y_{10} > X_1}
+    \pr{E_2|E_1} =\\
+    \pr{Y_1,...,Y_{10},X_1+Y_{11} > X_1 + X_2|Y_1,...,Y_{10} > X_1}
 \end{multline}
 Using memoryless property of exponential random variable,
 \begin{align}
@@ -166,13 +167,13 @@ Using memoryless property of exponential random variable,
 
 $\pr{E_3|E_1E_2} = $  
 \begin{multline}
-    \pr{min(Y_1,...,Y_{10},X_1+Y_{11},X_1+X_2+Y_{12}) \\
-    < X_1+X_2+X_3| Y_1,...,Y_{10},X_1+Y_{11} > X_1+X_2})
+    \Pr(min(Y_1,...,Y_{10},X_1+Y_{11},X_1+X_2+Y_{12}) \\
+    < X_1+X_2+X_3| Y_1,...,Y_{10},X_1+Y_{11} > X_1+X_2)
 \end{multline}
 
 \begin{multline}
-\implies \pr{E_3|E_1E_2} = 1 - \pr{Y_1,...,Y_{10},X_1+Y_{11},X_1+X_2+Y_{12} \\
-    > X_1+X_2+X_3| Y_1,...,Y_{10},X_1+Y_{11} > X_1+X_2})
+\implies \pr{E_3|E_1E_2} = 1 - \Pr(Y_1,...,Y_{10},X_1+Y_{11},X_1+X_2+Y_{12} \\
+    > X_1+X_2+X_3| Y_1,...,Y_{10},X_1+Y_{11} > X_1+X_2)
 \end{multline}
 
 \end{frame}
