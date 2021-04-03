@@ -178,6 +178,8 @@ Substituting in \eqref{varianceofy}
 \end{align}
 \begin{align}
     E(XY) &= \int_{-\infty}^{\infty}E(XY|X=x)f_X(x)dx\\
+          &= \int_{-\infty}^{\infty}E(xY|X=x)f_X(x)dx\\
+          &= \int_{-\infty}^{\infty}xE(Y|X=x)f_X(x)dx\\
           &= \int_{-\infty}^{\infty}\dfrac{x^4 e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx\\
           &= 3
 \end{align}
@@ -190,7 +192,6 @@ Substituting in \eqref{correlationofxy}
     Corr(X,Y) = \cfrac{3}{\sqrt{15}} > 0
 \end{align}
 Since $Corr(X,Y) \ne 0$, X and Y are dependent. Thus option 2 is the only correct option.
-
 
 \textbf{Proof for the integral:}
 
