@@ -134,6 +134,15 @@ https://github.com/Dishank422/AI1103-Probability-and-random-variables/blob/main/
     \item X and Y are independent
 \end{enumerate}
 \section{Solution}
+The following result shall be useful later. For $n \in N$
+\begin{align}
+    \int_{-\infty}^{\infty} \dfrac{x^n e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx = 
+    \begin{cases}
+    0 & n\; is\; odd\\
+    (n-1)\times...\times3\times1 & n\; is\; even
+    \end{cases}
+\end{align}
+The proof for the above can be found at the end of the solution.
 \begin{align}
     Corr(X,Y) = \cfrac{\sigma_{XY}^2}{\sigma_X\sigma_Y}
     \label{correlationofxy}
@@ -141,7 +150,7 @@ https://github.com/Dishank422/AI1103-Probability-and-random-variables/blob/main/
 
 We know $X \sim N(0,1)$. Thus,
 \begin{align}
-    f_X(x) &= \phi(x)\\
+    f_X(x) &= \dfrac{e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}\\
     E(X) &= 0\\
     \sigma_X^2 &= 1
 \end{align}
@@ -151,12 +160,12 @@ We know $X \sim N(0,1)$. Thus,
 \end{align}
 \begin{align}
     E(Y) &= \int_{-\infty}^{\infty}E(Y|X=x)f_X(x)dx\\
-         &= \int_{-\infty}^{\infty}x^3\phi(x)dx\\
+         &= \int_{-\infty}^{\infty}\dfrac{x^3 e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx\\
          &= 0
 \end{align}
 \begin{align}
     E(Y^2) &= \int_{-\infty}^{\infty}E(Y^2|X=x)f_X(x)dx\\
-           &= \int_{-\infty}^{\infty}x^6\phi(x)dx\\
+           &= \int_{-\infty}^{\infty}\dfrac{x^6 e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx\\
            &= 15
 \end{align}
 Substituting in \eqref{varianceofy}
@@ -169,8 +178,7 @@ Substituting in \eqref{varianceofy}
 \end{align}
 \begin{align}
     E(XY) &= \int_{-\infty}^{\infty}E(XY|X=x)f_X(x)dx\\
-          &= \int_{-\infty}^{\infty}xE(Y|X=x)f_X(x)dx\\
-          &= \int_{-\infty}^{\infty}x^4\phi(x)dx\\
+          &= \int_{-\infty}^{\infty}\dfrac{x^4 e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx\\
           &= 3
 \end{align}
 Substituting in \eqref{covarianceofxy}
@@ -183,34 +191,28 @@ Substituting in \eqref{correlationofxy}
 \end{align}
 Since $Corr(X,Y) \ne 0$, X and Y are dependent. Thus option 2 is the only correct option.
 
-The integrals can be solved using the following result for $n \in N$
-\begin{align}
-    \int_{-\infty}^{\infty} x^n \phi(x)dx = 
-    \begin{cases}
-    0 & n\; is\; odd\\
-    (n-1)\times...\times3\times1 & n\; is\; even
-    \end{cases}
-\end{align}
-\textbf{Proof:}
 
-If n is odd, $x^n\phi(x)$ is odd function, thus
+\textbf{Proof for the integral:}
+
+If n is odd, $\dfrac{x^n e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}$ is an odd function, thus
 \begin{align}
-    \int_{-\infty}^{\infty} x^n \phi(x)dx = 0
+    \int_{-\infty}^{\infty} \dfrac{x^n e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx = 0
 \end{align}
 If n is even, 
 \begin{align}
-    \int_{-\infty}^{\infty} x^n \phi(x)dx = \int_{-\infty}^{\infty} (x^{n-1}) (x\phi(x))dx
+    \int_{-\infty}^{\infty} \dfrac{x^n e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx = \int_{-\infty}^{\infty} (x^{n-1}) (\dfrac{x e^{\frac{-x^2}{2}}}{\sqrt{2\pi}})dx
 \end{align}
+Using integration by parts,
 \begin{multline}
-    = \left(x^{n-1}\int x\phi(x)dx\right)\biggr \vert_{-\infty}^{\infty}\\
-       - (n-1)\int_{-\infty}^{\infty}x^{n-2}\left(\int x\phi(x)dx\right) dx
+    \int_{-\infty}^{\infty} \dfrac{x^n e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx = \left(x^{n-1}\int \dfrac{x e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx\right)\biggr \vert_{-\infty}^{\infty}\\
+       - (n-1)\int_{-\infty}^{\infty}x^{n-2}\left(\int \dfrac{x e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx\right) dx
 \end{multline}
 \begin{align}
-    &= \left(x^{n-1}(-\phi(x))\right)\biggr \vert_{-\infty}^{\infty}
-           - (n-1)\int_{-\infty}^{\infty}x^{n-2}(-\phi(x)) dx\\
-    &= (n-1)\int_{-\infty}^{\infty} x^{n-2} \phi(x)dx\\
-    &= (n-1)(n-3)\int_{-\infty}^{\infty} x^{n-4} \phi(x)dx\\
-    &= (n-1)\times...\times3\times1\int_{-\infty}^{\infty} x^0 \phi(x)dx\\
+    &= \left(x^{n-1}(-\dfrac{e^{\frac{-x^2}{2}}}{\sqrt{2\pi}})\right)\biggr \vert_{-\infty}^{\infty}
+           - (n-1)\int_{-\infty}^{\infty}x^{n-2}(-\dfrac{e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}) dx\\
+    &= (n-1)\int_{-\infty}^{\infty} \dfrac{x^{n-2} e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx\\
+    &= (n-1)(n-3)\int_{-\infty}^{\infty} \dfrac{x^{n-4} e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx\\
+    &= (n-1)\times...\times3\times1\int_{-\infty}^{\infty} \dfrac{x^0 e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx\\
     &= (n-1)\times...\times3\times1
 \end{align}
 
