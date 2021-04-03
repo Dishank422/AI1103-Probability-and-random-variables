@@ -199,22 +199,21 @@ If n is odd, $\dfrac{x^n e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}$ is an odd function, t
 \begin{align}
     \int_{-\infty}^{\infty} \dfrac{x^n e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx = 0
 \end{align}
-If n is even, 
+If n is even, let $n = 2k$. We differentiate the following identity k times w.r.t. $\alpha$.
 \begin{align}
-    \int_{-\infty}^{\infty} \dfrac{x^n e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx = \int_{-\infty}^{\infty} (x^{n-1}) (\dfrac{x e^{\frac{-x^2}{2}}}{\sqrt{2\pi}})dx
+    \int_{-\infty}^{\infty}e^{-\alpha x^2}dx = \sqrt{\left( \dfrac{\pi}{\alpha}\right)}
 \end{align}
-Using integration by parts,
-\begin{multline}
-    \int_{-\infty}^{\infty} \dfrac{x^n e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx = \left(x^{n-1}\int \dfrac{x e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx\right)\biggr \vert_{-\infty}^{\infty}\\
-       - (n-1)\int_{-\infty}^{\infty}x^{n-2}\left(\int \dfrac{x e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx\right) dx
-\end{multline}
+On differentiating k times, we get
 \begin{align}
-    &= \left(x^{n-1}(-\dfrac{e^{\frac{-x^2}{2}}}{\sqrt{2\pi}})\right)\biggr \vert_{-\infty}^{\infty}
-           - (n-1)\int_{-\infty}^{\infty}x^{n-2}(-\dfrac{e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}) dx\\
-    &= (n-1)\int_{-\infty}^{\infty} \dfrac{x^{n-2} e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx\\
-    &= (n-1)(n-3)\int_{-\infty}^{\infty} \dfrac{x^{n-4} e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx\\
-    &= (n-1)\times...\times3\times1\int_{-\infty}^{\infty} \dfrac{x^0 e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx\\
-    &= (n-1)\times...\times3\times1
+    \int_{-\infty}^{\infty}x^{2k}e^{-\alpha x^2} = \dfrac{1\times3\times...\times(2k-1)}{2^k}  \sqrt{\left(\dfrac{\pi}{\alpha^{2k+1}}\right)}
+\end{align}
+On substituting $\alpha = \dfrac{1}{2}$, we get
+\begin{align}
+    \int_{-\infty}^{\infty}x^{n}e^{-\frac{x^2}{2}} = 1\times3\times...\times(n-1) \sqrt{2 \pi}
+\end{align}
+Thus
+\begin{align}
+     \int_{-\infty}^{\infty} \dfrac{x^n e^{\frac{-x^2}{2}}}{\sqrt{2\pi}}dx = (n-1)\times...\times3\times1
 \end{align}
 
 \end{document}
