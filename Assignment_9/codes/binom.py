@@ -8,5 +8,5 @@ Y = binom.rvs(n = 100, p = 0.5, size = sim_len)
 
 Z = X+Y
 
-plt.hist(Z, bins = 100)
+plt.hist(Z, bins = 200)
 plt.show()
