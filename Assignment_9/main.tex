@@ -143,83 +143,45 @@ https://github.com/Dishank422/AI1103-Probability-and-random-variables/blob/main/
 \section{Solution}
 \begin{enumerate}[label = \arabic*)]
     \item Let X and Y be independent and identically distributed normal random variables. Then the characteristic function of X and Y is given by
-    \begin{align}
+    \begin{equation}
         \Phi_X(\omega) = e^{j\eta\omega - \sigma^2\omega^2/2}
-    \end{align}
+    \end{equation}
     The characteristic function of Z is given by
     \begin{align}
         \Phi_Z(\omega) &= \Phi_X^2(\omega)\\
                        &= e^{2j\eta\omega - \sigma^2\omega^2}
     \end{align}
     Thus Z is a normal random variable with parameters $2\eta$ and $2\sigma^2$. Thus option (1) is correct.
-    \item Let X and Y be independent and identically distributed exponential random variables. Then the pdf of X and Y is given by
+    \item Let X and Y be independent and identically distributed exponential random variables. Then the characteristic function of X and Y is given by
+    \begin{equation}
+        \Phi_X(\omega) = \dfrac{\lambda}{1-j\omega}
+    \end{equation}
+    The characteristic function of Z is given by
     \begin{align}
-        f_X(x) = 
-        \begin{cases}
-            \lambda e^{-\lambda x} &x>0\\
-            0 &otherwise
-        \end{cases}
-    \end{align}
-    Using convolution, 
-    \begin{align}
-        f_z(z) = 
-        \begin{cases}
-            \int_0^z f_X(x)f_Y(z-x) dx &z>0\\
-            0 &otherwise
-        \end{cases}
-    \end{align}
-    Thus if $z>0$,
-    \begin{align}
-        f_Z(z) &= \int_0^z \lambda^2 e^{-\lambda x}e^{-\lambda(z-x)} dx\\
-               &= z \lambda^2 e^{-\lambda z}
+        \Phi_Z(\omega) &= \Phi_X^2(\omega)\\
+                       &= \dfrac{\lambda^2}{(1-j\omega)^2}
     \end{align}
     Thus Z is not an exponential random variable. Therefore option (2) is wrong.
-    \item Let X and Y be independent and identically distributed uniform random variables such that X, Y $\sim$ U(a,b). Then
+    \item Let X and Y be independent and identically distributed uniform random variables such that X, Y $\sim$ U(a,b). Then the characteristic function of X and Y is given by
+    \begin{equation}
+        \Phi_X(\omega) = \dfrac{e^{jb\omega} - e^{ja\omega}}{j\omega(b-a)}
+    \end{equation}
+    The characteristic function of Z is given by
     \begin{align}
-        f_X(x) = 
-        \begin{cases}
-            \dfrac{1}{b-a} &a<x<b\\
-            0 &otherwise
-        \end{cases}
-    \end{align}
-    Then, using convolution, for $2a<z<a+b$, 
-    \begin{align}
-        f_Z(z) &= \int_{2a}^z f_X(x)f_Y(z-x) dx\\
-               &= \dfrac{z-2a}{(b-a)^2}
-    \end{align}
-    For $a+b<z<2b$,
-    \begin{align}
-        X,Y &> z - (a+b)\\
-        Z &= X+Y\\
-        \implies X,Y &< (b-a)\\
-        \implies f_Z(z) &= \int_{z-(a+b)}^{b-a} f_X(x)f_Y(z-x)dx\\
-                        &= \dfrac{2b-z}{(b-a)^2}
-    \end{align}
-    For $z<2a$ or $z>2b$, 
-    \begin{align}
-        f_Z(z) = 0
+        \Phi_Z(\omega) &= \Phi_X^2(\omega)\\
+                       &= -\dfrac{(e^{jb\omega} - e^{ja\omega})^2}{\omega^2(b-a)^2}
     \end{align}
     Thus Z is not a uniform random variable. Thus option (3) is wrong.
-    \item Let X and Y be independent and identically distributed binomial random variables. Then the pmf of X and Y is given by
+    \item Let X and Y be independent and identically distributed binomial random variables. Then the characteristic function of X and Y is given by
+    \begin{equation}
+        \Phi_X(\omega) = (pe^{j\omega}+q)^n
+    \end{equation}
+    The characteristic function of Z is given by
     \begin{align}
-        p_X(k) = \myvec{n\\k}p^k q^{n-k}
+        \Phi_Z(\omega) &= \Phi_X^2(\omega)\\
+                       &= (pe^{j\omega}+q)^{2n}
     \end{align}
-    Taking Z-transform
-    \begin{align}
-        p_X(z) &= \sum_{k=0}^n \myvec{n\\k} p^k q^{n-k} z^{-k}\\
-               &= \left(\dfrac{p}{z}+q \right)^n
-    \end{align}
-    Thus
-    \begin{align}
-        p_Z(z) &= p_X^2(z)\\
-               &= \left(\dfrac{p}{z}+q \right)^{2n}\\
-               &= \sum_{k=0}^{2n} \myvec{2n\\k} p^k q^{2n-k} z^{-k}
-    \end{align}
-    Thus taking inverse Z-transform, 
-    \begin{align}
-        p_Z(k) = \myvec{2n\\k} p^k q^{2n-k}
-    \end{align}
-    Thus Z is a binomial random variable. Thus option (4) is correct.
+    Thus Z is a binomial random variable with parameter 2n. Thus option (4) is correct.
 \end{enumerate}
 The following figures show the experimental distributions for Z in each case. The simulation length was kept one million.
 \begin{figure}[!ht]
